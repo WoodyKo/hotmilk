@@ -1,0 +1,89 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>ちえぴったん</title>
+		<link rel="stylesheet" href="./lib/honoka/css/bootstrap.min.css">
+	</head>
+	<body>
+		<script src="./lib/jquery-2.1.4.min.js"></script>
+		<script>
+			$(function(){
+
+				$("#button").click(function(){
+					if(!document.getElementById("form").checkValidity()){
+						alert("全ての項目を入力してください");
+						return;
+					}
+					var button = $(this);
+					button.attr("disabled",true);
+
+					var formdata = {
+						"user":{
+							"token":"123" //仮
+						},
+						"ticket":{
+							title:$("#value1").val(),
+							body:$("#value2").val(),
+							price:$("#value3").val(),
+							time:$("#value4").val(),
+							level:$("#value5").val(),
+							datetime:$("value6").val(),
+							place:$("value7").val(),
+							sex:$("input[name='sex']:checked").val(),
+							review_min:$("#value8").val(),
+							keyword:$("#value9").val() //デザインのと違う
+						}
+					};
+
+					var send_data = JSON.stringify(formdata);
+					console.log(formdata);
+					console.log(send_data);
+
+					$.ajax({
+						type: 'POST',
+						url: './receiveticket.php',
+						dataType: 'json',
+						contentType: 'application/json',
+						data: send_data,
+						success: function(json_data){
+							if(!json_data[0]){
+								alert("Transaction error." + json_data[1]);
+								return;
+							}
+					
+							alert(JSON.stringify(json_data)); 
+						},
+						error: function(xhr,textStatus,errorThrown){						
+							alert("error.");
+							console.log(xhr,textStatus,errorThrown);
+						},
+						complete: function(){
+							button.attr("disabled",false);
+						}
+					});
+				});
+			});
+		</script>
+		<form id="form">
+    	    <p>タイトル</p><p><input type="text" id="value1" size="30" required></p>
+			<p>教えてほしい内容</p><p><textarea id="value2" rows="6" cols="40" wrap="soft" required></textarea></p>
+			<p>基本情報</p>
+			<p>希望料金</p><p><input type="number" id="value3" min="0" required></p>
+            <p>所要時間</p><p><input type="number" id="value4" min="0.5" step="0.5" required></p>
+            <p>難易度</p><p><input type="number" id="value5" min="1" max="3" step="1" required></p>
+            <p>希望日時</p><p><input type="date" id="value6" required></p>
+			<p>希望場所</p><p><input type="text" id="value7" size="30" required></p>
+			<p>条件</p>
+			<p>希望する性別</p><p><label><input type="radio" name="sex" value="0">どちらでも</label>
+			<label><input type="radio" name="sex" value="1">男性</label>
+			<label><input type="radio" name="sex" value="2">女性</label></p>
+			<p>希望する評価</p><p><input type="number" id="value8" min="0" max="5" step="0.5" required>hoge以上</p>
+			<p>タグ付け<input type="text" id="value9" size="30" required>
+			<button id="add" type="button">追加</button></p>
+			<p><button id="button" type="button">完了</button></p>
+			<p><a href="">キャンセルする</a></p>
+		</form>
+	</body>
+</html>
