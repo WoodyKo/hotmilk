@@ -1,26 +1,16 @@
-/*input#value5 {
-	position:absolute;
-	to: 0;
-	opacity 0;
-	width:100%;
-	height:100%;
-}
-
-input[type="checkbox"] + label {
+input#value5[type="checkbox"] {
 	-webkit-appearance: none;
+	-moz-appearance: none;
+	display: block;
 	width:126px;
 	height:126px;
 	background: url(../img/button/button-32.png) no-repeat;
 	background-size: contain;
-//	opacity: 0;
-//	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
 }
 
-img.beginnerSkill {
+input#value5[type="checkbox"]:checked {
 	width:126px;
 	height:126px;
+    background: url(../img/button/button-35.png) no-repeat;
+	background-size: contain;
 }
-
-input[type="checkbox"]:checked + label {
-    background-image: url(../img/button/button-35.png) no-repeat;
-}*/
