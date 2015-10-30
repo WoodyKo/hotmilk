@@ -1,4 +1,4 @@
-input#value5[type="checkbox"] {
+input#ticket_skill[type="checkbox"] {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	display: block;
@@ -8,7 +8,7 @@ input#value5[type="checkbox"] {
 	background-size: contain;
 }
 
-input#value5[type="checkbox"]:checked {
+input#ticket_skill[type="checkbox"]:checked {
 	width:126px;
 	height:126px;
     background: url(../img/button/button-35.png) no-repeat;
