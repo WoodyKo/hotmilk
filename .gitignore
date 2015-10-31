@@ -4,5 +4,7 @@
 .LSOverride
 Icon
 
-### test file ###
+### file ###
 001.txt
+/lib/
+/img/
