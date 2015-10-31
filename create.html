@@ -5,108 +5,71 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<title>ちえぴったん</title>
 		<link rel="stylesheet" href="./lib/honoka/css/bootstrap.min.css">
-		<link rel="stylesheet" href="./css/maketicket.css">
+		<link rel="stylesheet" href="./css/create.css">
 	</head>
 	<body>
 		<script src="./lib/jquery/jquery-2.1.4.min.js"></script>
-		<script>
-			$(function(){
-
-				$("#button").click(function(){
-					if(!document.getElementById("form").checkValidity()){
-						alert("全ての項目を入力してください");
-						return;
-					}
-					
-					if ($(":checkbox[name='ticket_skill']").prop('checked')) {
-						$(":checkbox[name='ticket_skill']")[0].value=1;
-					}
-
-					/*var button = $(this);
-					button.attr("disabled",true);*/
-
-					var formdata = {
-						"user":{
-							"token":"123" //仮
-						},
-						"ticket":{
-							title:$("#ticket_title").val(),
-							body:$("#ticket_content").val(),
-							price:$("#ticket_number").val(),
-							time:$("#ticket_price").val(),
-							level:$("#ticket_skill").val(),
-							place:$("#ticket_location").val(),
-							keyword:$("#ticket_tag").val() //デザインのと違う
-						}
-					};
-
-					var send_data = JSON.stringify(formdata);
-					console.log(formdata);
-					console.log(send_data);
-
-					$.ajax({
-						type: 'POST',
-						url: './receiveticket.php',
-						dataType: 'json',
-						contentType: 'application/json',
-						data: send_data,
-						success: function(json_data){
-							if(!json_data[0]){
-								alert("Transaction error." + json_data[1]);
-								return;
-							}
-					
-							alert(JSON.stringify(json_data)); 
-						},
-						error: function(xhr,textStatus,errorThrown){						
-							alert("error.");
-							console.log(xhr,textStatus,errorThrown);
-						},
-						complete: function(){
-							button.attr("disabled",false);
-						}
-					});
-				});
-			});
-		</script>
+		<script src="./js/create.js"></script>
+<!--	<div class="header"></div>	-->
+		<h4 class="text-center"> 新しいおしえて！を作成</h4>
 		<form role="form" id="form">
-			<div class="container"> 
-				<div class="form-group">
-					<label for="ticketTitle">タイトル</label>
-					<input type="text" class="form-control" id="ticket_title" size="30" placeholder="チケットのタイトルを入力" required>
-				</div>
-				<div class="form-group">
-					<label for="ticketContent">教えてほしい内容</label>
-					<textarea class="form-control" id="ticket_content" rows="6" cols="40" wrap="soft" required></textarea>
-				</div>
-				<label for="ticketInformation">基本情報</label>
-				<div class="form-group">
-					<label for="ticketPrice">希望料金</label>
-					<input type="number" class="form-control" id="ticket_number" min="0" required>
-				</div>
-				<div class="form-group">
-					<label for="ticketTime">所要時間</label>
-					<input type="number" class="form-control" id="ticket_price" min="0.5" step="0.5" required>
-				</div>
-				<div class="form-group">
-					<label for="ticketSkill">スキル</label>
-					<input type="checkbox" name="ticket_skill" id="ticket_skill" value="0">
-				</div>
-				<div class="form-group">
-					<label for="ticketLocation">希望場所</label>
-					<input type="text" class="form-control" id="ticket_location" size="30" required>
-				</div>
-				<div class="form-inline">
+			<div class="createticket_body">
+				<div class="container"> 
 					<div class="form-group">
-						<label for="ticketTag">タグ付け<input type="text" class="form-control" id="ticket_tag" size="30" required>
-						<button id="add" type="button">追加</button>
+						<h5 class="text-center"><label for="ticketTitle">タイトル</label></h5>
+						<input type="text" class="form-control" id="ticket_title" size="30" placeholder="チケットのタイトルを入力" required>
+					</div>
+					<div class="form-group">
+						<h5 class="text-center"><label for="ticketContent">教えてほしい内容</label></h5>
+						<textarea class="form-control" id="ticket_content" rows="6" cols="40" wrap="soft" required></textarea>
+					</div>
+					<hr>
+					<h5 class="text-center"><label for="ticketInformation">希望事項</label></h5>
+					<div class="form-group">
+						<label for="ticketPrice">希望料金</label>
+						<input type="number" class="form-control" id="ticket_number" min="0" placeholder="500円" required>
+					</div>
+					<div class="form-group">
+						<label for="ticketTime">所要時間</label>
+						<input type="number" class="form-control" id="ticket_price" min="0.5" step="0.5" placeholder="0.5時間" required>
+					</div>
+					<div class="form-group">
+						<label for="ticketSkill">スキル</label>
+						<input type="checkbox" name="ticket_skill" id="ticket_skill" value="0">
+					</div>
+					<h5><label for="ticketLocation">希望場所<span style="margin-right: 3em;"></span><small>複数選択可</small></label></h5>
+					<div class="form-group">
+						<label>オンライン
+							<span style="margin-right: 2em;"></span>
+							<input type="checkbox" name="skype" id="skype" value="0">
+							<input type="checkbox" name="hangout" id="hangout" value="1">
+						</label>
+					</div>
+					<div class="form-group">
+						<label>オフライン
+							<span style="margin-right: 2em;"></span>
+							<input class="pull-right" type="text" class="form-control" id="ticket_location" required>
+						</label>
+					</div>
+					<hr>
+					<h5 class="text-center"><label for="ticketTag">タグ付け</label></h5>
+					<div class="form-inline">
+						<div class="form-group">
+							<input type="text" class="form-control" id="ticket_tag" required>
+							<button class="pull-right" id="add" type="button">追加</button>
+						</div>
 					</div>
 				</div>
 			</div>
 			<div class="container">
-				<button id="button" type="button">完了</button>
-				<p><a href="">キャンセルする</a></p>
+				<div class="row">
+					<div class="col-xs-6 col-xs-offset-3">
+						<button class="center-block btn-danger btn-block" id="button" type="button">完了</button>
+					</div>
+				</div>
 			</div>
 		</form>
+	<!--<div class="footer">
+		</div>-->
 	</body>
 </html>
