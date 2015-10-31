@@ -28,7 +28,7 @@
 				<h6 class="text-center"><label for="ticketInformation">希望事項</label></h6>
 				<div class="form-group">
 					<label id="blue-font" for="ticketPrice">30分あたりの料金</label>
-					<select class="form-control" id="ticket_number" required>
+					<select class="form-control" id="ticket_price" required>
 						<option value="300">300 円</option>
 						<option value="400">400 円</option>
 						<option value="500">500 円</option>
@@ -46,7 +46,7 @@
 				</div>
 				<div class="form-group">
 					<label id="blue-font" for="ticketTime">所要時間</label>
-					<select class="form-control" id="ticket_price" required>
+					<select class="form-control" id="ticket_time" required>
 						<option value="0.5">0.5 時間</option>
 						<option value="1.0">1.0 時間</option>
 						<option value="1.5">1.5 時間</option>
@@ -54,6 +54,10 @@
 						<option value="2.5">2.5 時間</option>
 						<option value="3.0">3.0 時間</option>
 					</select>
+					<small class="pull-right">総額 
+					<small id="calculate_price">300</small>
+					<script src="./js/calculate-price.js"></script>
+					 円</small>
 				</div>
 				<div class="form-group">
 					<h5><label id="blue-font" for="ticketLocation">希望場所<span style="margin-right: 3em;"></span><small>複数選択可</small></label></h5>
