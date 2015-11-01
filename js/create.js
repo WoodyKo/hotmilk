@@ -20,11 +20,10 @@ $(function(){
 			"ticket":{
 				title:$("#ticket_title").val(),
 				body:$("#ticket_content").val(),
-				price:$("#ticket_number").val(),
-				time:$("#ticket_price").val(),
-				level:$("#ticket_skill").val(),
+				price:$("#ticket_price").val(),
+				time:$("#ticket_time").val(),
 				place:$("#ticket_location").val(),
-				keyword:$("#ticket_tag").val() //デザインのと違う
+				tags:$("#ticket_tag").val() //デザインのと違う
 			}
 		};
 

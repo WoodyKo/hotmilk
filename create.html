@@ -27,7 +27,7 @@
 				<hr>
 				<h6 class="text-center"><label for="ticketInformation">希望事項</label></h6>
 				<div class="form-group">
-					<label id="blue-font" for="ticketPrice">30分あたりの料金</label>
+					<label class="blue-font" for="ticketPrice">30分あたりの料金</label>
 					<select class="form-control" id="ticket_price" required>
 						<option value="300">300 円</option>
 						<option value="400">400 円</option>
@@ -45,7 +45,7 @@
 					</select>
 				</div>
 				<div class="form-group">
-					<label id="blue-font" for="ticketTime">所要時間</label>
+					<label class="blue-font" for="ticketTime">所要時間</label>
 					<select class="form-control" id="ticket_time" required>
 						<option value="0.5">0.5 時間</option>
 						<option value="1.0">1.0 時間</option>
@@ -54,31 +54,50 @@
 						<option value="2.5">2.5 時間</option>
 						<option value="3.0">3.0 時間</option>
 					</select>
-					<small class="pull-right">総額 
+					<small id="total_price" class="pull-right">総額 
 					<small id="calculate_price">300</small>
 					<script src="./js/calculate-price.js"></script>
 					 円</small>
 				</div>
-				<div class="form-group">
-					<h5><label id="blue-font" for="ticketLocation">希望場所<span style="margin-right: 3em;"></span><small>複数選択可</small></label></h5>
-					<label id="blue-font">オンライン
-						<span style="margin-right: 2em;"></span>
-						<input type="checkbox" name="skype" id="skype" value="0">
-						<input type="checkbox" name="hangout" id="hangout" value="1">
-					</label>
-				</div>
-				<div class="form-group">
-					<label id="blue-font">オフライン
-						<span style="margin-right: 2em;"></span>
-						<input class="pull-right" type="text" class="form-control" id="ticket_location">
-					</label>
+				<div class="form-horizontal">
+					<div class="form-group">
+						<h5>
+							<label class="col-xs-4 col-sm-2 col-md-2 blue-font ticket-location-font" for="ticketLocation">希望場所</label>
+							<small class="col-xs-8 col-sm-10 col-md-10">複数選択可</small>
+						</h5>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-4 col-sm-2 col-md-2">
+							<img id="online_icon" src="./img/icon1030/ボタン-48.png">
+							<label class="blue-font online-font">オンライン</label>
+						</div>
+						<div class="col-xs-4 col-sm-5 col-md-5">
+							<input type="checkbox" name="skype" id="skype" value="0">
+							<label for="skype" id="skype_text"><img id="skype_icon" src="./img/icon1030/ボタン-52.png">Skype</label>
+						</div>
+						<div class="col-xs-4 col-sm-5 col-md-5 no-padding-left">	
+							<input type="checkbox" name="hangouts" id="hangouts" value="0">
+							<label for="hangouts" id="hangouts_text"><img id="hangouts_icon" src="./img/icon1030/ボタン-53.png">Hangouts</label>
+						</div>  
+                    </div>  
+					<div class="form-group">
+						<div class="col-xs-4 col-sm-2 col-md-2">
+							<img id="offline_icon" src="./img/icon1030/ボタン-49.png">
+							<label class="blue-font offline-font">オフライン</label>
+						</div>
+						<div class="col-xs-8 col-smi-10 col-md-10">
+							<input type="text" class="form-control" id="ticket_location">
+						</div>
+					</div>
 				</div>
 				<hr>
 				<h6 class="text-center"><label for="ticketTag">タグ付け</label></h6>
 				<div class="form-group">
 					<div class="row">
-						<div class="col-xs-12 col-sm-6 col-md-8">
-							<input type="text" class="form-control" id="ticket_tag" required>
+						<div class="col-xs-9 col-sm-9 col-md-9 col-sm-offset-1 col-md-offset-1">
+							<input type="text" class="form-control" id="ticket_tag" placeholder="関連タグを入力" required>
+						</div>
+						<div class="col-xs-1 col-sm-1 col-md-1">
 							<button id="add" type="button">追加</button>
 						</div>
 					</div>
