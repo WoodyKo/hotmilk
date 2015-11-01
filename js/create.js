@@ -6,12 +6,22 @@ $(function(){
 			return;
 		}
 		
-		if ($(":checkbox[name='ticket_skill']").prop('checked')) {
-			$(":checkbox[name='ticket_skill']")[0].value=1;
-		}
+		if (!$(":checkbox[name='skype']").prop('checked') && !$(":checkbox[name='hangouts']").prop('checked') && !$(":input[name='ticket_location']").val()) {
+			alert("希望場所を指定してください。");
+			return;
+		} 
 
-		/*var button = $(this);
-		button.attr("disabled",true);*/
+		if ($(":checkbox[name='skype']").prop('checked')) {
+			$(":checkbox[name='skype']").val("true");
+		} else {
+			$(":checkbox[name='skype']").val("false");
+		}
+		
+		if($(":checkbox[name='hangouts']").prop('checked')) {
+            $(":checkbox[name='hangouts']").val("true");
+        } else {
+			$(":checkbox[name='hangouts']").val("false");
+		}
 
 		var formdata = {
 			"user":{
@@ -22,8 +32,10 @@ $(function(){
 				body:$("#ticket_content").val(),
 				price:$("#ticket_price").val(),
 				time:$("#ticket_time").val(),
+				skype:$("#skype").val(),
+				hangouts:$("#hangouts").val(),
 				place:$("#ticket_location").val(),
-				tags:$("#ticket_tag").val() //デザインのと違う
+				tags:$("#ticket_tag").val()
 			}
 		};
 
@@ -46,11 +58,12 @@ $(function(){
 				alert(JSON.stringify(json_data)); 
 			},
 			error: function(xhr,textStatus,errorThrown){						
-				alert("error.");
+				console.log("error.");
 				console.log(xhr,textStatus,errorThrown);
 			},
-			complete: function(){
-				button.attr("disabled",false);
+			complete: function(json_data){
+				console.log("complete.");
+				console.log(json_data);
 			}
 		});
 	});

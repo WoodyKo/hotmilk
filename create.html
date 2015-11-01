@@ -8,7 +8,7 @@
 		<link rel="stylesheet" href="./css/create.css">
 	</head>
 	<body id="ticketpage">
-		<script src="./js/jquery-2.1.4.min.js"></script>
+		<script src="./js/jquery.min.js"></script>
 		<script src="./js/create.js"></script>
 <!--	<div class="header"></div>	-->
 		<h4 class="text-center"> 新しい<img id="oshiete" src="./img/icon1030/ボタン-80.png" alt="おしえて！">を作成</h4>
@@ -72,12 +72,12 @@
 							<label class="blue-font online-font">オンライン</label>
 						</div>
 						<div class="col-xs-4 col-sm-5 col-md-5">
-							<input type="checkbox" name="skype" id="skype" value="0">
-							<label for="skype" id="skype_text"><img id="skype_icon" src="./img/icon1030/ボタン-52.png">Skype</label>
+							<input type="checkbox" name="skype" id="skype" value="false">
+							<label for="skype" name="skype_text" id="skype_text"><img id="skype_icon" src="./img/icon1030/ボタン-52.png">Skype</label>
 						</div>
 						<div class="col-xs-4 col-sm-5 col-md-5 no-padding-left">	
-							<input type="checkbox" name="hangouts" id="hangouts" value="0">
-							<label for="hangouts" id="hangouts_text"><img id="hangouts_icon" src="./img/icon1030/ボタン-53.png">Hangouts</label>
+							<input type="checkbox" name="hangouts" id="hangouts" value="false">
+							<label for="hangouts" name="hangouts_text" id="hangouts_text"><img id="hangouts_icon" src="./img/icon1030/ボタン-53.png">Hangouts</label>
 						</div>  
                     </div>  
 					<div class="form-group">
@@ -86,7 +86,7 @@
 							<label class="blue-font offline-font">オフライン</label>
 						</div>
 						<div class="col-xs-8 col-smi-10 col-md-10">
-							<input type="text" class="form-control" id="ticket_location">
+							<input type="text" class="form-control" name="ticket_location" id="ticket_location">
 						</div>
 					</div>
 				</div>
