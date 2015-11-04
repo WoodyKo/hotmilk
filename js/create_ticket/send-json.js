@@ -66,7 +66,7 @@ $(function(){
 
 		var formdata = {
 			"user":{
-				"token":"eJ6b2GhxJ6T9ApejZokbwAm-XUz5Ap6B" //仮
+				"token":"eJ6b2GhxJ6T9ApejZokbwAm-XUz5Ap6B" //仮 localStorage.getItem('token')
 			},
 			"ticket":{
 				title:$("#ticket_title").val(),

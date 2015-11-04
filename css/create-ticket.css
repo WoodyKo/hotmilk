@@ -47,7 +47,7 @@ input#beginner[type="checkbox"]:checked + #beginner_icon {
     background-size: contain;
 }
 
-input#beginner[type="checkbox"]:checked + #beginner_icon {
+#file_icon:hover {
     background: url(../img/icon/plus.png) no-repeat;
     background-size: contain;
 }
